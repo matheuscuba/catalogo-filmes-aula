@@ -1,0 +1,21 @@
+@import 'variaveis';
+
+body{
+  background-color: $dark;
+}
+
+.App{
+  width: 85vw;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.movie-wrapper{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#search-bar{
+  width: 100%;
+}
