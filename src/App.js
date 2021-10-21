@@ -1,17 +1,12 @@
 import './App.scss';
 import MovieCard from './components/MovieCard';
+import SearchBar from './components/SearchBar';
 
 function App() {
   return (
     <div className="App">
-      <input id="search-bar" placeholder="Procure por um filme..." />
+      <SearchBar />
       <div className="movie-wrapper">
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
         <MovieCard />
         <MovieCard />
         <MovieCard />
