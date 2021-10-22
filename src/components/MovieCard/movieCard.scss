@@ -1,9 +1,74 @@
+@import './../../variaveis';
+
 .movie-card{
     width: 180px;
     height: 240px;
-
+    position: relative;
     background-size: cover;
     border-radius: 5px;
     cursor: pointer;
     margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 12px;
+    box-sizing: border-box;
+    transition: 0.3s;
+
+    &::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: $midGrey;
+        opacity: 0;
+        transition: 0.2s;
+        z-index: 1;
+    }
+
+    &:hover{
+
+        transform: scale(1.2);
+
+        &::before{
+            opacity: 0.6;
+        }
+
+        h4, span, .heart{
+            opacity: 1;
+        }
+    }
+
+    h4, span, .heart{
+        color: white;
+        position: relative;
+        z-index: 2;
+        transition: 0.2s;
+        opacity: 0;
+    }
+
+    h4{
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0 0 5px 0;
+        align-self: flex-start;
+    }
+
+    span{
+        font-size: 16px;
+        align-self: flex-start;
+    }
+
+    button{
+        background: none;
+        border: none;
+        outline: none;
+
+        position: absolute;
+        top: 12px;
+        right: 6px;
+    }
 }

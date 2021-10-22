@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './movieCard.scss'
-
+import HeartSvg from './../../svg/heart';
+import HeartFullSvg from './../../svg/heart-full';
 class MovieCard extends Component {
 
     render(){
@@ -18,7 +19,11 @@ class MovieCard extends Component {
 
         return(
             <div className="movie-card" style={style}>
-
+                <button>
+                    <HeartSvg className="heart" width={25} height={25} />
+                </button>
+                <h4>{movie.title}</h4>
+                <span>{movie.year}</span>
             </div>
         )
     }
