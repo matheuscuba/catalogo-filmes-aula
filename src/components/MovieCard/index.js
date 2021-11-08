@@ -6,12 +6,11 @@ class MovieCard extends Component {
 
     render(){
 
-        let movie = {
-            title: 'Star Wars - The Force Awakens',
-            year: 2018,
-            favorite: false,
-            image: 'https://img.elo7.com.br/product/original/2C25D05/big-poster-filme-star-wars-o-despertar-da-forca-tam-90x60-cm-poster-star-wars.jpg'
-        }
+        let movie = this.props.movie;
+        movie.image = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
+        
+        let releaseDate = new Date(movie.release_date);
+        movie.year = releaseDate.getUTCFullYear();
 
         let style = {
             backgroundImage: 'url('+ movie.image +')'

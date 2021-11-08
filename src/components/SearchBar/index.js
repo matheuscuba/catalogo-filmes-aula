@@ -18,8 +18,8 @@ export default class SearchBar extends Component {
 	}
 
 	onTextChange = debounce((text) => {
-		alert(text);
-	}, 5000);
+		this.props.onSearch(text);
+	}, 500);
 
     render() {
       	return (
