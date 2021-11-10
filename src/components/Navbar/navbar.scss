@@ -1,0 +1,28 @@
+@import './../../variaveis';
+
+.nav{
+    width: 100%;
+    margin-bottom: 4rem;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        width: 100%;
+
+        li {
+            display: inline-block;
+            margin-right: 3rem;
+
+            a {
+                color: $lightGrey;
+                font-size: 45px;
+                font-weight: lighter;
+                text-decoration: none;
+
+                &.active{
+                    color: white;
+                }
+            }
+        }
+    }
+}

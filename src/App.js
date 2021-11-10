@@ -1,40 +1,22 @@
 import React, { Component } from 'react';
-
 import './App.scss';
-import MovieCard from './components/MovieCard';
-import SearchBar from './components/SearchBar';
-import MovieAPI from './services/MovieAPI';
+
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
+import Home from './pages/Home';
+import Favoritos from './pages/Favoritos';
+import Navbar from './components/Navbar';
+
 class App extends Component {
-
-    state = {
-        movies: []
-    }
-    
-    onSearch(title){
-
-        if(!title){
-            this.setState({
-                movies: []
-            })
-            
-            return;
-        }
-
-        MovieAPI.searchMovies(title)
-            .then((data) => {
-                this.setState({
-                    movies: Array.from(data.data.results).sort((a, b) => new Date(b.release_date) - new Date(a.release_date))
-                })
-            });
-    }
-
     render(){
         return (
             <div className="App">
-                <SearchBar onSearch={(title) => this.onSearch(title)}/>
-                <div className="movie-wrapper">
-                    { this.state.movies.map(movie => <MovieCard movie={movie} />) }
-                </div>
+               <Router>
+                   <Navbar />
+                   <Routes>
+                       <Route path="/" element={<Home />} />
+                       <Route path="/favoritos" element={<Favoritos />} />
+                   </Routes>
+               </Router>
             </div>
         );
     }
