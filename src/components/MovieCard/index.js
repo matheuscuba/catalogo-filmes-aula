@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 const NO_IMAGE = 'https://via.placeholder.com/180x240';
+
 class MovieCard extends Component {
 
     state = {
@@ -31,6 +32,10 @@ class MovieCard extends Component {
         } else {
             this.props.adicionarFavorito(movie);
         }
+
+        this.setState({
+            isFavorite: !this.state.isFavorite
+        });
     }
 
     render(){
@@ -51,9 +56,9 @@ class MovieCard extends Component {
         }
 
         return(
-            <div className="movie-card" style={style}>
+            <div className="movie-card" style={style} onClick={() => this.toggleFavorito()}>
                 <button>
-                    { this.state.isFavorite 
+                    { this.state.isFavorite
                         ? <HeartFullSvg className="heart" width={25} height={25} /> 
                         : <HeartSvg className="heart" width={25} height={25} />
                     }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import './styles.scss';
 import MovieCard from './../../components/MovieCard';
 import SearchBar from './../../components/SearchBar';
 import MovieAPI from './../../services/MovieAPI';
@@ -24,7 +23,12 @@ class Home extends Component {
         MovieAPI.searchMovies(title)
             .then((data) => {
                 this.setState({
-                    movies: Array.from(data.data.results).sort((a, b) => new Date(b.release_date) - new Date(a.release_date))
+                    movies: Array.from(data.data.results)
+                        .sort((a, b) => new Date(b.release_date) - new Date(a.release_date))
+                        .map(x => ({
+                            ...x,
+                            id: x.title + x.release_date
+                        }))
                 })
             });
     }
